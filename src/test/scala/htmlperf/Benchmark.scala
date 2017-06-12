@@ -9,6 +9,7 @@ import org.scalameter.api.exec
 object Benchmark extends Bench.ForkedTime {
   private[this] object Templater extends Enumeration {
     val ScalaTags = Value
+    val ScalaXml = Value
     val Twirl = Value
 
     implicit val pickler = new Pickler[Value] {
@@ -26,6 +27,7 @@ object Benchmark extends Bench.ForkedTime {
   performance of "templating" in {
     using(Gen.crossProduct(genN, genTemplater)).config(exec.benchRuns -> 100, exec.warmupCovThreshold -> 0.05) in {
       case (n, Templater.ScalaTags) => ScalaTags.render("title & such", "paragraph", n).toString
+      case (n, Templater.ScalaXml) => ScalaXml.render("title & such", "paragraph", n).toString
       case (n, Templater.Twirl) => html.twirl("title & such", "paragraph", n).body
     }
   }
