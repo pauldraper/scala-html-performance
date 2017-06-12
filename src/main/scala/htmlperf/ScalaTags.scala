@@ -12,7 +12,7 @@ object ScalaTags {
       body(
         h1(color := "red")(title),
         div(backgroundColor := "blue")(
-          p(0, `class` := "content first", paragraph),
+          p(`class` := "content first", paragraph),
           a(href := "http://example.com")("Example"),
           (0 until n).map { i =>
             p(i,
@@ -24,5 +24,5 @@ object ScalaTags {
           }
         )
       )
-    ).toString
+    )
 }

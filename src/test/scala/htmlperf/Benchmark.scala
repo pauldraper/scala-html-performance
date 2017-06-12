@@ -25,8 +25,8 @@ object Benchmark extends Bench.ForkedTime {
 
   performance of "templating" in {
     using(Gen.crossProduct(genN, genTemplater)).config(exec.benchRuns -> 100, exec.warmupCovThreshold -> 0.05) in {
-      case (n, Templater.ScalaTags) => ScalaTags.render("title", "paragraph", n)
-      case (n, Templater.Twirl) => html.twirl("title", "paragraph", n)
+      case (n, Templater.ScalaTags) => ScalaTags.render("title & such", "paragraph", n).toString
+      case (n, Templater.Twirl) => html.twirl("title & such", "paragraph", n).body
     }
   }
 

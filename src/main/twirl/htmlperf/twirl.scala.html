@@ -12,10 +12,8 @@
             <a href="http://example.com">Example</a>
         </div>
         @defining(0) { zero =>
-            @zero.until(5).map { i =>
-                <p color="@(if (i % 2 == 0) "red" else "green")" class="content">
-                    Paragraph
-                </p>
+            @zero.until(n).map { i =>
+                <p color="@(if (i % 2 == 0) "red" else "green")" class="content">Paragraph @i</p>
             }
         }
     </body>
