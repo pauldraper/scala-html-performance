@@ -15,12 +15,7 @@ object ScalaTags {
           p(`class` := "content first", paragraph),
           a(href := "http://example.com")("Example"),
           (0 until n).map { i =>
-            p(i,
-              `class` := "content",
-              color := (if (i % 2 == 0) "red" else "green"),
-              "Paragraph ",
-              i
-            )
+            p(`class` := "content", color := (if (i % 2 == 0) "red" else "green"), "Paragraph ", i)
           }
         )
       )
