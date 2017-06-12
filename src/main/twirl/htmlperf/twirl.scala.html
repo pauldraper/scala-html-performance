@@ -1,19 +1,17 @@
 @(title: String, paragraph: String, n: Int)
 <html>
     <head>
-        <script>
-            console.log(1);
-        </script>
+        <script>console.log(1)</script>
     </head>
     <body>
-        <h1 color="red">@title</h1>
-        <div backgroundColor="blue">
+        <h1 style="color:red">@title</h1>
+        <div style="background-color:blue">
             <p class="content first">@paragraph</p>
             <a href="http://example.com">Example</a>
         </div>
         @defining(0) { zero =>
             @zero.until(n).map { i =>
-                <p color="@(if (i % 2 == 0) "red" else "green")" class="content">Paragraph @i</p>
+                <p style="color:@(if (i % 2 == 0) "red" else "green")" class="content">Paragraph @i</p>
             }
         }
     </body>
